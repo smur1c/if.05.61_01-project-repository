@@ -20,11 +20,11 @@
    \color{blue}
 }{}
 
-\newcommand{\projectname}{Pets.Home}
+\newcommand{\projectname}{PetsHome}
 \newcommand{\productname}{Caring about pets when their owners are not home}
 \newcommand{\developers}{Sebastian Muric, Walter Pichl} 
 \newcommand{\documentstatus}{In process}
-%\newcommand{\documentstatus}{Submitted}
+%\newcommand{\documentstatus}{Submitted
 %\newcommand{\documentstatus}{Released}
 \newcommand{\version}{V. 1.0}
 
@@ -66,110 +66,72 @@ But where to put their beloved animals during their holidays? Well, to this date
 
 \section{Initial Situation}
 \begin{explanation}
-The initial situation presents the assessment of the actual situation of an organizational unit or the entire organization of an agency or company. Thus a need for action, which may lead to a product or system vision, is recognizable. The vision may be developed into a project idea. The need for action may be initiated by several project or system ideas.
-The demonstration of capability gaps (i.e. the difference between the necessary planned capabilities and the actually existing capabilities) in a company or agency may clearly show an urgent need for action in order to increase the efficiency or reduce costs. This need for action is presented as product or system idea, leading frequently to a concrete project proposal. Correspondingly, the determination of the requirement to renew or improve a "technically obsolete" system (so-called "system regeneration") or the recognition of market chances for a new product or system may lead to a project idea. The applicable data must be developed for the project proposal.
-Research programs or studies may also be the basis for project ideas; they will be concretized in a project proposal.
-
-The basic question could be summarized in German as follows:
-\begin{itemize}
-	\item Die Ist-Fähigkeiten der Organisation (was können wir?)
-	\item Die Soll-Fähigkeiten der Organisation (was wollen wir können?)
-	\item Ein Soll-Ist-Fähigkeitenvergleich (wo liegen die Defizite?)
-	\item Ein Fähigkeitsvergleich nach vorgegebenen Bewertungskriterien
-\end{itemize}
+The current situation we are experiencing right now is that there are several websites where people can rent services, but no explicitly for the purpose of getting care for the pets.
+Our product strives to prodvide an exclusive offer for people searching for babysitting for their beloved pets.
 \end{explanation}
-
-\begin{example}
-A doctor in a (primary) school examines the primary school students periodically. (S)he must report the results of this examinations and inform parents about medical defects. Sometimes the doctor has to refer students in problematic health condition to specialists.
-
-The creation of the paperwork is time-consuming since the health data collected during the examinations has to be edited several times (once for the reports, once for the parents information, once for referral, etc. The information retrieval concerning the medical history of students is also time-consuming. The time spent on this work would be better used on direct contact time with students.
-
-The documentation of the examinations can be automated. So the reports and further documents will be generated. The medical history will be persisted automatically.
-\end{example}
-
 \pagebreak
 
 \section{General Conditions and Constraints}
-\begin{explanation}
-This subject describes the framework conditions to be observed by all stakeholders when the project idea is implemented into concrete measures for realizing the system. Framework conditions, e.g., budget situation, existing know-how, legal provisions, cooperations, commitment to partners and deadlines, may be turned into specifications for project execution.
-Technical framework conditions, e.g., development environments and platforms, IT infrastructure, applicable standards and regulations, or specifications of off-the-shelf products, lead to additional (non-functional) requirements for system development.
-\end{explanation}
-
-\begin{example}
-The proposed system has to the deal with the following constraints:
+As people sign up to our service, their sensitive data needs to be securely stored, so no one without permissions cant access them.
 \begin{itemize}
-\item The information about the medical condition of the pupils is strictly confidential.
+\item The user data must be secured.
 \item The GUI of the information system must be intuitive.
-\item The application must have a small footprint and a local database.
-\item A backup concept is mandatory
-\item The application is multi-language capable (english and german)
+\item The application should collect only data it only needs.
+\item Backup's are mandatory
+\item Different languages should be implemented
+\item Verification of sellers should be done
+\item Payment needs to be secured
 \end{itemize}
-\end{example}
 
 \pagebreak
 
 \section{Project Objectives and System Concepts}
 \begin{explanation}
-In the Subject Project Objectives and System Concepts, the acquirer describes his vision of a new project or system on a high abstraction level. Project objectives and system concepts may concern several aspects, e.g., the introduction of innovations, the definition of objectives (quality, deadline and cost objectives), the operation of the system in its operating environment and the use of new, improved functionalities.
+It's very important that we keep the application tidy and clean. We also need to provide a simple experience for users.
 \end{explanation}
 
-\begin{example}
-The project objectives can be summarized as follows:
 \begin{itemize}
-\item The doctor is documenting the examination results while examining the students
-\item Input form assists her/him to input information in a structured and easy way
-\item Common situations (need for vaccinations, check for need of dental brace, etc.) are a one-click-job for the doctor
-\item Info sheet for parents can be printed right after examination
-\item Report is a one-click-job at the end of the day
+\item People can sign up to the service 
+\item Later on they are asked if they want to provide care or need care for their pets
+\item People will not be able to care for the pets without having a trusted confirmation from the website. Which means they will be tested and checked whether it is safe to bring your pet to their place.
+\item Then they need to submit their area and the maximum distance they should get suggestions
+\item If the users finds someone he would like to hand over his pet, a chat can be started
+\item Payment will be handled via the app.
+\item To not get scammed, the funds will stay on hold till the buyer confirmed them.
+\item When finished, a review can be written. There is no way to write a review without actually buying the service of the provider.
 \end{itemize}
-\end{example}
 
 \pagebreak
 \section{Opportunities and Risks}
 \begin{explanation}
-The Subject Opportunities and Risks comprises data which are normally prepared in industrial business plans. Frequently, an anonymous market with potential acquirers, which could be interested in the new product or system idea, will be analyzed at first. Therefore, the contents of this subject is characterized by a certain uncertainty or fuzziness. The subjects examines the chances of achieving profit on the market with a specific product or system. In addition to the chances, the risks of failing on the market or sustaining losses with a product or system should be analyzed.
+With a project like this we are also dealing with opportunities and problems.
 \end{explanation}
-
-\begin{example}
-The project has the following opportunities:
+\linebreak
+Following opportunities could happen
 \begin{itemize}
-\item The doctor is able to increase his time with his patients.
-\item The time for bureaucratic work declines.
+\item People are more relaxed with finding care for their pets
+\item As the project rises, more and more people will use this service
 \item The quality will increase
 \end{itemize}
 
-The following risk have to be taken into account.
+The following problems could happen
 \begin{itemize}
-\item Data transfer of studentsÕ master data from legacy systems is problematic.
-\item There is no information about the legacy systems and their data structure.
-\item Further there is no information, whether the staff is capable and willing to supply the students master data (names, classes, ...).
+\item Exploiting of the payment System
+\item Database leaks
 \end{itemize}
-
-\end{example}
 
 \pagebreak
 \section{Planning}
 \begin{explanation}
-The planning specifies the organizational and commercial project execution and system development aspects. The project organization, e.g., matrix organization and steering committees, and the responsibilities for the decision-making processes within project will be specified.
-The Project Leader will be appointed, his tasks will be defined. Available resources, funds and specialist personnel will be determined. Start and end date for the project will be specified. The planning can be based on the statements developed in the subject Project Objectives and System Concepts, which makes additional statements on feasibility, funding and schedules.
-
-The following parts must be included:
-\begin{itemize}
-\item List of major project milestones.
-\item Assign project lead and other outstanding roles to team members.
-\item Give a rough estimate how many resources you need (human resources, licenses, servers, etc.)
-\end{itemize}
-
-Answer the following questions when preparing this section:
-\begin{itemize}
-\item When will the project end?
-\item When will the project start?
-\item When will be a first prototype available?
-\item When does implementation work start?
-\item What are the big blocks of work to be done?
-\item Is this work doable in the given period of time?
-\item Do we need any other stuff to make our work (licenses, servers, É)?
-\end{itemize}
+This is a rough example of things resources we need to develop and create this service
 \end{explanation}
-
+\begin{itemize}
+\item The project will end on 15th June 2022
+\item The project starts on 31st October 2021
+\item The first prototype will be available in roughly 1 month
+\item When does implementation work start?
+\item Big chunks of work is the backend and the database handling
+\item The work is doable in some months
+\item We need 1 or 2 servers which handle the requests and databases
+\end{itemize}
 \end{document}  
