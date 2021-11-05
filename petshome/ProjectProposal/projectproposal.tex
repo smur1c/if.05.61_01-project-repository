@@ -15,9 +15,9 @@
 \newtheorem{example}{Example}
 
 \newenvironment{explanation}{%
-   \setlength{\parindent}{0pt}
-   \itshape
-   \color{blue}
+   %\setlength{\parindent}{0pt}
+   %\itshape
+   %\color{blue}
 }{}
 
 \newcommand{\projectname}{PetsHome}
@@ -26,7 +26,7 @@
 \newcommand{\documentstatus}{In process}
 %\newcommand{\documentstatus}{Submitted
 %\newcommand{\documentstatus}{Released}
-\newcommand{\version}{V. 1.0}
+\newcommand{\version}{Version 1.0}
 
 \begin{document}
 \begin{titlepage}
@@ -62,76 +62,73 @@ Version & \version \\ \hline
 It's a matter of fact that people like to travel or just relax on the beach on their holidays, but what if they own a pet such as a dog or a cat which they normally can't take with on their trip because either the airline rejects them or someone else.
 But where to put their beloved animals during their holidays? Well, to this date mostly friends or relatives take them which is of course not done by everyone and it's difficult, because people need to ask them, teach how to feed, treat them etc.
 \end{explanation}
-\pagebreak
 
 \section{Initial Situation}
 \begin{explanation}
 The current situation we are experiencing right now is that there are several websites where people can rent services, but no explicitly for the purpose of getting care for the pets.
 Our product strives to prodvide an exclusive offer for people searching for babysitting for their beloved pets.
 \end{explanation}
-\pagebreak
 
 \section{General Conditions and Constraints}
-As people sign up to our service, their sensitive data needs to be securely stored, so no one without permissions cant access them.
-\begin{itemize}
-\item The user data must be secured.
-\item The GUI of the information system must be intuitive.
-\item The application should collect only data it only needs.
-\item Backup's are mandatory
-\item Different languages should be implemented
-\item Verification of sellers should be done
-\item Payment needs to be secured
-\end{itemize}
-
+As the security of the data is very important we will plan to use a database where all the hashed sensitive information will be stored.
+\newline
+Not everyone is familiar with the new technology therefore we will try to aim for a easy and smooth Interface which will give you the opportunity
+to get as fast and easy as possible to certain information.
+\newline
+In order to keep all the data safe we will use proper backups. The user will be able to choose his/her prefered language to get an easier overview.
+\newline
+All sellers which will take care of your pet must be verified.
+\newline
+The App will also offer a overview with all your pets that ypu are taking care of. That means that every pet will have a small characteristics. 
+Also the seller will get notification for special pets which need certain medicine or dont tolerate some food types. 
+\newline
+Lastly the almost most important thing must be as secure as possible which is the payment. Thefore we will use a safe payment system such as Stripe. 
 \pagebreak
 
 \section{Project Objectives and System Concepts}
 \begin{explanation}
 It's very important that we keep the application tidy and clean. We also need to provide a simple experience for users.
+\newline
+After downloading the app, users need to make an account, or can otherwise sign in if they already have one.
+\newline
+For simpilicity we tend to use Google SignUp Services, so people can just use their Google account in order to use the service.
+\newline
+After this process the app will ask if the user wants to provide care or needs care.
+\newline
+If they want to provide help, users need to go through a verification process in order to prevent abuse for example: misstreating the pet, not providing adequate care etc..
+\newline
+After this verification the users can either issue an advertisement or search for offers. It should also be possible to filter offers depending on the city or on the distace.
+\newline
+If an offer is found, the chat function can be used to get in touch with the person. Later on the payment can be made.
+\newline
+To prevent fraud, the funds will be held until the user confirms his satisfaction.
+\newline
+After that a review about the service can be made.
+
 \end{explanation}
 
-\begin{itemize}
-\item People can sign up to the service 
-\item Later on they are asked if they want to provide care or need care for their pets
-\item People will not be able to care for the pets without having a trusted confirmation from the website. Which means they will be tested and checked whether it is safe to bring your pet to their place.
-\item Then they need to submit their area and the maximum distance they should get suggestions
-\item If the users finds someone he would like to hand over his pet, a chat can be started
-\item Payment will be handled via the app.
-\item To not get scammed, the funds will stay on hold till the buyer confirmed them.
-\item When finished, a review can be written. There is no way to write a review without actually buying the service of the provider.
-\end{itemize}
-
-\pagebreak
 \section{Opportunities and Risks}
 \begin{explanation}
-With a project like this we are also dealing with opportunities and problems.
+This project is a really useful for every pet owner and could get a major place for pet care in the future.
+\newline
+If the userbase increases, users might experience a poor low loading perfomance and might search for a new service
+
 \end{explanation}
-\linebreak
-Following opportunities could happen
-\begin{itemize}
-\item People are more relaxed with finding care for their pets
-\item As the project rises, more and more people will use this service
-\item The quality will increase
-\end{itemize}
-
-The following problems could happen
-\begin{itemize}
-\item Exploiting of the payment System
-\item Database leaks
-\end{itemize}
-
-\pagebreak
 \section{Planning}
 \begin{explanation}
-This is a rough example of things resources we need to develop and create this service
+We've set ourselfs the following milestones
+\begin{flushleft}
+\begin{tabular}{|l|l|} \hline
+Milestones \\ \hline
+Setting up the environment \\ \hline
+Designing the GUI \\ \hline
+Implementing the GUI \\ \hline
+Programming the backend to interact with the GUI \\ \hline
+Implement the user signup \\ \hline
+Implement the offer function \\ \hline
+Implement the search function \\ \hline
+Implement a chat function \\ \hline
+\end{tabular}
+\end{flushleft}
 \end{explanation}
-\begin{itemize}
-\item The project will end on 15th June 2022
-\item The project starts on 31st October 2021
-\item The first prototype will be available in roughly 1 month
-\item When does implementation work start?
-\item Big chunks of work is the backend and the database handling
-\item The work is doable in some months
-\item We need 1 or 2 servers which handle the requests and databases
-\end{itemize}
 \end{document}  
