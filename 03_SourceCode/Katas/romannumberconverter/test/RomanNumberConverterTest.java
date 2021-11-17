@@ -64,11 +64,11 @@ public class RomanNumberConverterTest {
 
     @Test
     public void itShouldReturn2GivenII() {
-        Assert.assertEquals(1, RomanNumberConverter.toArabic("I"));
+        Assert.assertEquals(2, RomanNumberConverter.toArabic("II"));
     }
 
     @Test
     public void itShouldReturn3GivenIII() {
-        Assert.assertEquals(1, RomanNumberConverter.toArabic("I"));
+        Assert.assertEquals(3, RomanNumberConverter.toArabic("III"));
     }
 }

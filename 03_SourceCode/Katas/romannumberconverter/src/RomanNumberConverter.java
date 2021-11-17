@@ -25,7 +25,9 @@ public class RomanNumberConverter {
             return 3;
         }
 
-        return 1;
+        int result = 0;
+
+        return result;
     }
 
     enum Numerals {
