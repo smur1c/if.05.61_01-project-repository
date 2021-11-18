@@ -17,17 +17,7 @@ public class RomanNumberConverter {
     }
 
     public static int toArabic(String roman) {
-        if(roman == "II") {
-            return 2;
-        }
-
-        if(roman == "III") {
-            return 3;
-        }
-
-        int result = 0;
-
-        return result;
+        return roman.length();
     }
 
     enum Numerals {
