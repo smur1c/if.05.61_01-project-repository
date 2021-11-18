@@ -30,6 +30,7 @@ public class RomanNumberConverter {
         TEN(10, "X"),
         NINE(9, "IX"),
         FIVE(5, "V"),
+        SIX(6, "VI"),
         FOUR(4, "IV"),
         ONE(1, "I");
 
