@@ -87,6 +87,9 @@ public class RomanNumberConverterTest {
     public void itShouldReturn6GivenVII() {
         Assert.assertEquals(7, RomanNumberConverter.toArabic("VII"));
     }
-
+    @Test
+    public void itShouldReturn6GivenIX() {
+        Assert.assertEquals(9, RomanNumberConverter.toArabic("IX"));
+    }
 
 }
