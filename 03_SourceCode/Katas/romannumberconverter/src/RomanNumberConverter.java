@@ -17,10 +17,13 @@ public class RomanNumberConverter {
     }
 
     public static int toArabic(String roman) {
-        int values = roman.length();
-        for(Numerals numeral : Numerals.values()) {
-            if(numeral.roman == roman){
-                values = numeral.arabic;
+        int values = 0;
+        while(roman.length() > 0){
+            for(Numerals numeral : Numerals.values()){
+                if(roman.startsWith(numeral.roman)){
+                    values += numeral.arabic;
+                    roman = roman.substring(numeral.roman.length());
+                }
             }
         }
         return values;
