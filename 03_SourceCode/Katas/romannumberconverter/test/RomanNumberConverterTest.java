@@ -83,6 +83,11 @@ public class RomanNumberConverterTest {
     public void itShouldReturn6GivenVI() {
         Assert.assertEquals(6, RomanNumberConverter.toArabic("VI"));
     }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     @Test
     public void itShouldReturn7GivenVII() {
         Assert.assertEquals(7, RomanNumberConverter.toArabic("VII"));
@@ -104,4 +109,5 @@ public class RomanNumberConverterTest {
         Assert.assertEquals(20, RomanNumberConverter.toArabic("XX"));
     }
 
+>>>>>>> 38597d8a0d72dcf0e6e0140697a9ef95d21f9e90
 }
