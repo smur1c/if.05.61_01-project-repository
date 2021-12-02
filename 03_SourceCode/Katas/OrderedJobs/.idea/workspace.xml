@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5016d47-ffc3-4632-98f2-e6b899d77ee9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Job.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/JobsScheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/OrderedJobsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/libraries/junit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/libraries/junit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/romannumberconverter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/romannumberconverter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/src/RomanNumberConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/src/RomanNumberConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../romannumberconverter/test/RomanNumberConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Romannumberconverter/test/RomanNumberConverterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderedJobs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderedJobs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobsScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobsScheduler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +35,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="218Lkm0djDtAmL6OR5RuX71P89A" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -49,20 +45,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.All in OrderedJobs">
+  <component name="RunManager" selected="JUnit.OrderedJobsTest">
     <configuration name="All in OrderedJobs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OrderedJobs" />
       <option name="PACKAGE_NAME" value="" />
@@ -82,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in OrderedJobs" />
         <item itemvalue="JUnit.OrderedJobsTest" />
+        <item itemvalue="JUnit.All in OrderedJobs" />
       </list>
     </recent_temporary>
   </component>
