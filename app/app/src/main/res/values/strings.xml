@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">petshome</string>
+    <string name="button">Button</string>
+    <string name="password">Password</string>
 </resources>
