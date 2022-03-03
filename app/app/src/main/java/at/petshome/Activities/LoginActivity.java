@@ -1,9 +1,11 @@
-package at.petshome;
+package at.petshome.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+
+import at.petshome.R;
 
 public class LoginActivity extends AppCompatActivity {
 

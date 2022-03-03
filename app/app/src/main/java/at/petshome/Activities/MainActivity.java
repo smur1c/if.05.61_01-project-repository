@@ -1,8 +1,10 @@
-package at.petshome;
+package at.petshome.Activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import at.petshome.R;
 
 public class MainActivity extends AppCompatActivity {
     @Override
