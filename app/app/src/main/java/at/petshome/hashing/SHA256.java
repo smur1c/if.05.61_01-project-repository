@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class SHA256 {
-
     public static byte[] generateSalt() {
         byte[] salt = new byte[16];
 

@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onResetPassword(View view) {
-
+        Intent intent = new Intent(this, ResetPasswordActivity.class);
+        startActivity(intent);
     }
 }

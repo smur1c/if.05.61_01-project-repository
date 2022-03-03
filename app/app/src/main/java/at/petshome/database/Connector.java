@@ -26,8 +26,8 @@ public class Connector {
 
     public void openConnection() {
         try {
-            Class.forName(MariaDB.JDBC_DRIVER);
-            mConnection = DriverManager.getConnection(MariaDB.DB_URL, MariaDB.USER, MariaDB.PASS);
+            Class.forName(MariaDB.driver);
+            mConnection = DriverManager.getConnection(MariaDB.database_url, MariaDB.username, MariaDB.password);
             mConnected = true;
         } catch (SQLException e) {
 
