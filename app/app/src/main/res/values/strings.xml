@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">petshome</string>
-    <string name="button">Button</string>
-    <string name="password">Password</string>
+
+    <string name="login_email">e-mail</string>
+    <string name="login_password">password</string>
+    <string name="login_confirm">login</string>
+    <string name="login_register">register</string>
+    <string name="login_forgot_password">forgot password</string>
+
+    <string name="register_name">name</string>
+    <string name="register_email">e-mail</string>
+    <string name="register_phone">phone number</string>
+    <string name="register_confirm">register</string>
 </resources>

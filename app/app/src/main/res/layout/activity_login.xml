@@ -6,14 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onLogin"
+        android:text="@string/login_confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_field"
+        tools:ignore="DuplicateSpeakableTextCheck,UsingOnClickInXml"
+        android:focusable="true" />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onRegister"
+        android:text="@string/login_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_field"
+        tools:ignore="DuplicateSpeakableTextCheck,UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/forgot_password_button"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="72dp"
+        android:onClick="onResetPassword"
+        android:text="@string/login_forgot_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_field"
+        tools:ignore="DuplicateSpeakableTextCheck,UsingOnClickInXml" />
+
     <EditText
-        android:id="@+id/editTextTextEmailAddress3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/email_field"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_marginTop="168dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/login_email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#607D8B"
@@ -23,31 +63,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="215dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:onClick="loginButtonHandler"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/password_field"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="@string/login_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+        app:layout_constraintTop_toBottomOf="@+id/email_field" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
