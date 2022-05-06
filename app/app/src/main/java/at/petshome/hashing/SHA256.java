@@ -14,9 +14,8 @@ public class SHA256 {
         return salt;
     }
 
-    public static String hash(String input) {
+    public static String hash(String input, byte[] salt) {
         String msg = null;
-        byte[] salt = SHA256.generateSalt();
 
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");

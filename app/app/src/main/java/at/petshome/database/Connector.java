@@ -30,10 +30,10 @@ public class Connector {
             mConnection = DriverManager.getConnection(MariaDB.database_url, MariaDB.username, MariaDB.password);
             mConnected = true;
         } catch (SQLException e) {
-
+            System.out.println("sqlexeception");
         }
         catch (ClassNotFoundException e) {
-
+            System.out.println("class not found");
         }
     }
 
