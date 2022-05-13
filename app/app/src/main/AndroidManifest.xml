@@ -10,10 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petshome">
         <activity
+            android:name=".Activities.HomeActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".Activities.ResetPasswordActivity"
             android:exported="false" />
 
         <activity
+
             android:name=".Activities.RegisterActivity"
             android:exported="false" />
         <activity
