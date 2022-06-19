@@ -33,28 +33,30 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/register_phone"
+        android:id="@+id/register_password"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/register_phone"
-        android:inputType="phone"
+        android:hint="@string/login_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
         android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/register_confirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_email"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/register_email" />
 
     <Button
         android:id="@+id/register_confirm"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
+        android:onClick="doRegister"
         android:text="@string/register_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/register_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
