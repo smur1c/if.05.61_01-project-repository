@@ -1,5 +1,9 @@
 package at.petshome.Fragments;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,14 +13,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
+import at.petshome.Activities.EditProfileActivity;
+import at.petshome.Activities.RegisterActivity;
+import at.petshome.Pet;
 import at.petshome.R;
+import at.petshome.Settings;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,8 @@ import at.petshome.R;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    ArrayList<Pet> mList = null;
+    ArrayAdapter mAdapter = null;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,18 +65,43 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
+    public void updateList() {
+        mList.clear();
+        File file = getContext().getDatabasePath("PetsHome");
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(file, null);
+        Cursor cursor = database.rawQuery(String.format("SELECT * FROM pets WHERE user_id = %d", Settings.getInstance().getUid()), null);
+
+        while (cursor.moveToNext()) {
+            mList.add(new Pet(cursor.getInt(0), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
+        }
+    }
+
+    private void handleItemClicked(int position) {
+        Pet pet = mList.get(position);
+
+        if (pet == null) {
+            return;
+        }
+
+        Intent intent = new Intent(getContext(), EditProfileActivity.class);
+        intent.putExtra("id", pet.getId());
+        intent.putExtra("name", pet.getName());
+        intent.putExtra("type", pet.getType());
+        intent.putExtra("address", pet.getAddress());
+        startActivity(intent);
+        System.out.println(Settings.getInstance().getPet().getName());
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ListView lv = getView().findViewById(R.id.lv_profile);
-        ArrayList<String> test = new ArrayList<>();
-        test.add("lacho");
-        test.add("lol");
-        test.add("amk");
-        test.add("lach");
+        mList = new ArrayList<>();
+        updateList();
+        mAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, mList);
 
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, test);
-        lv.setAdapter(adapter);
+        lv.setOnItemClickListener((parent, view1, position, id) -> handleItemClicked(position));
+        lv.setAdapter(mAdapter);
     }
 
     @Override
@@ -87,6 +121,9 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onResume() {
+        mAdapter.clear();
+        updateList();
+        mAdapter.notifyDataSetChanged();
         System.out.println("suscall");
         super.onResume();
     }

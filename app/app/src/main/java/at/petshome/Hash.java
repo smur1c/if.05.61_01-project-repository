@@ -1,4 +1,4 @@
-package at.petshome.hashing;
+package at.petshome;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -6,18 +6,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Hash {
-    private static Hash mSingleon = null;
+    private static Hash mSingleton = null;
 
     private Hash() {
 
     }
 
     public static Hash getInstance() {
-        if (mSingleon == null) {
-            mSingleon = new Hash();
+        if (mSingleton == null) {
+            mSingleton = new Hash();
         }
 
-        return mSingleon;
+        return mSingleton;
     }
 
     public String hash(String input) {

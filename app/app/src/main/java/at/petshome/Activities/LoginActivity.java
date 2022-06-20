@@ -10,13 +10,13 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import at.petshome.R;
-import at.petshome.hashing.Hash;
+import at.petshome.Hash;
+import at.petshome.Settings;
 
 public class LoginActivity extends AppCompatActivity {
+    private EditText mEmailField;
+    private EditText mPasswordField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+    @Override
+    protected void onStart() {
+        mEmailField = findViewById(R.id.login_email);
+        mPasswordField = findViewById(R.id.login_password);
+        super.onStart();
+    }
+
     public void onLogin(View view) {
-        EditText email_field = findViewById(R.id.login_email);
-        EditText password_field = findViewById(R.id.login_password);
+        mEmailField.setError(null);
+        mPasswordField.setError(null);
 
-        email_field.setError(null);
-        password_field.setError(null);
-
-        String email = email_field.getText().toString();
-        String password = password_field.getText().toString();
+        String email = mEmailField.getText().toString();
+        String password = mPasswordField.getText().toString();
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
         Cursor cursor;
@@ -40,24 +44,27 @@ public class LoginActivity extends AppCompatActivity {
             cursor = database.rawQuery(String.format("SELECT * FROM users"), null);
         }
         catch (SQLException ex) {
-            email_field.setError("Email not found");
+            mEmailField.setError("Email not found");
             return;
         }
+
         while (cursor.moveToNext()) {
             String currentEmail = cursor.getString(1);
             String currentPassword = cursor.getString(3);
 
             if (currentEmail.equals(email) && Hash.getInstance().hash(password).equals(currentPassword)) {
+                Settings.getInstance().setEmail(currentEmail);
+                Settings.getInstance().setUid(cursor.getInt(0));
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return;
             }
             else if (currentEmail.equals(email) && !currentPassword.equals(password)) {
-                password_field.setError("Wrong password");
+                mPasswordField.setError("Wrong password");
                 return;
             }
         }
-        email_field.setError("Wrong email");
+        mEmailField.setError("Wrong email");
     }
 
     public void onRegister(View view) {

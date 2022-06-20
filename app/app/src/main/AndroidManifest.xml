@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petshome">
         <activity
+            android:name=".Activities.CreatePetkeeperProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.CreateProfileActivity"
             android:exported="false" />
         <activity

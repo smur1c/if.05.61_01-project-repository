@@ -16,6 +16,7 @@
     <string name="reset_password_confirm">reset password</string>
 
     <string name="create_new_profile">Create new Profile</string>
+    <string name="create_new_petkeeper_profile">Create new Petkeeper profile</string>
 
     <string name="profile_name">Name</string>
     <string name="profile_type">Pet type</string>
@@ -23,4 +24,11 @@
     <string name="profile_create">Create profile</string>
 
     <string name="register_keeper">Register as a keeper</string>
+
+    <string name="edit_confirm">Save profile</string>
+    <string name="edit_delete">Delete profile</string>
+
+    <string name="petkeeper_email">e-mail (visible to everyone)</string>
+    <string name="petkeeper_full_name">Full name</string>
+    <string name="petkeeper_about_you">About you</string>
 </resources>
