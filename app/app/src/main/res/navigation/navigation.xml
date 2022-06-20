@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/profile"
-        android:name="at.petshome.Fragments.Profile"
+        android:name="at.petshome.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/search"
-        android:name="at.petshome.Fragments.search"
+        android:name="at.petshome.Fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 </navigation>

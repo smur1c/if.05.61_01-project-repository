@@ -2,6 +2,7 @@ package at.petshome.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import at.petshome.R;
+import at.petshome.hashing.Hash;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -23,30 +25,52 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void doRegister(View view) {
-        EditText name_field = (EditText)findViewById(R.id.register_name);
-        EditText email_field = (EditText)findViewById(R.id.register_email);
-        EditText password_field = (EditText)findViewById(R.id.register_password);
+        EditText name_field = findViewById(R.id.register_name);
+        EditText email_field = findViewById(R.id.register_email);
+        EditText password_field = findViewById(R.id.register_password);
 
-        if (!regexTesterEmail(email_field.getText().toString()) || !regexTesterPassword(password_field.getText().toString())) {
+        name_field.setError(null);
+        email_field.setError(null);
+        password_field.setError(null);
+
+        boolean wrong = false;
+
+        if (!regexTesterEmail(email_field.getText().toString())) {
             email_field.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (!regexTesterPassword(password_field.getText().toString())) {
             password_field.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (name_field.getText() == null || name_field.getText().toString().equals("")) {
+            name_field.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (wrong) {
             return;
         }
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
 
-        database.execSQL("CREATE TABLE users(email TEXT NOT NULL PRIMARY KEY, name TEXT NOT NULL, password NOT NULL)");
+        database.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, password NOT NULL)");
 
         Cursor users = database.rawQuery("SELECT * FROM users", null);
 
         while (users.moveToNext()) {
-            if (users.getString(0).equals(email_field.getText().toString())) {
+            if (users.getString(1).equals(email_field.getText().toString())) {
                 email_field.setError("Email already in use");
                 return;
             }
         }
 
-        database.execSQL(String.format("INSERT INTO users(email, name, password) VALUES('%s', '%s', '%s')", email_field.getText(), name_field.getText(), password_field.getText()));
+        database.execSQL(String.format("INSERT INTO users(email, name, password) VALUES('%s', '%s', '%s')", email_field.getText(), name_field.getText(), Hash.getInstance().hash(password_field.getText().toString())));
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public boolean regexTesterEmail(String email){

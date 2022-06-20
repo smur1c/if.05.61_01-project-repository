@@ -14,6 +14,13 @@
 
     <string name="reset_password_email">e-mail</string>
     <string name="reset_password_confirm">reset password</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="create_new_profile">Create new Profile</string>
+
+    <string name="profile_name">Name</string>
+    <string name="profile_type">Pet type</string>
+    <string name="profile_address">Postal address</string>
+    <string name="profile_create">Create profile</string>
+
+    <string name="register_keeper">Register as a keeper</string>
 </resources>

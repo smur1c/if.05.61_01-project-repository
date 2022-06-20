@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/drawable/icon_profile.xml" value="0.236" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_create_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_reset_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/fragment_profile.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/menu/bottom_menu.xml" value="0.2296875" />
+        <entry key="..\:/Users/Lovelace/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/menu/top_menu.xml" value="0.253125" />
         <entry key="..\:/Users/PapsT/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_home.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/PapsT/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_login.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/PapsT/Documents/assignments/if.05.61_01-project-repository/app/app/src/main/res/layout/activity_main.xml" value="0.11790393013100436" />
