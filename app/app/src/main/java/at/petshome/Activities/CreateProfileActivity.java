@@ -14,7 +14,8 @@ import at.petshome.Settings;
 public class CreateProfileActivity extends AppCompatActivity {
     private EditText mNameField;
     private EditText mTypeField;
-    private EditText mAddressField;
+    private EditText mCityField;
+    private EditText mZIPField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,8 @@ public class CreateProfileActivity extends AppCompatActivity {
     protected void onStart() {
         mNameField = findViewById(R.id.profile_name);
         mTypeField = findViewById(R.id.profile_type);
-        mAddressField = findViewById(R.id.profile_address);
+        mCityField = findViewById(R.id.profile_city);
+        mZIPField = findViewById(R.id.profile_city);
         super.onStart();
     }
 
@@ -43,8 +45,22 @@ public class CreateProfileActivity extends AppCompatActivity {
             wrong = true;
         }
 
-        if (mAddressField.getText() == null || mAddressField.getText().toString().equals("")) {
-            mTypeField.setError("Wrong format (City-ZIP)");
+        if (mCityField.getText() == null || mCityField.getText().toString().equals("")) {
+            mCityField.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (mZIPField.getText() == null || mZIPField.getText().toString().equals("")) {
+            mZIPField.setError("Wrong format");
+            wrong = true;
+        }
+
+        int zipCode = 0;
+
+        try {
+            zipCode = Integer.parseInt(mZIPField.getText().toString());
+        }
+        catch (NumberFormatException ex) {
             wrong = true;
         }
 
@@ -53,7 +69,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         }
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("INSERT INTO pets(user_id, name, type, address) VALUES(%d, '%s', '%s', '%s')", Settings.getInstance().getUid(), mNameField.getText().toString(), mTypeField.getText().toString(), mAddressField.getText().toString()));
+        database.execSQL(String.format("INSERT INTO pets(user_id, name, type, city, zip) VALUES(%d, '%s', '%s', '%s', %d)", Settings.getInstance().getUid(), mNameField.getText().toString(), mTypeField.getText().toString(), mCityField.getText().toString(), zipCode));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

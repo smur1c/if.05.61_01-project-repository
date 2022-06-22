@@ -14,7 +14,8 @@ import at.petshome.R;
 public class EditProfileActivity extends AppCompatActivity {
     private EditText mNameField;
     private EditText mTypeField;
-    private EditText mAddressField;
+    private EditText mCityField;
+    private EditText mZIPField;
     private Pet mPet;
 
     @Override
@@ -25,18 +26,20 @@ public class EditProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        super.onStart();
+
         mNameField = findViewById(R.id.edit_name);
         mTypeField = findViewById(R.id.edit_type);
-        mAddressField = findViewById(R.id.edit_address);
+        mCityField = findViewById(R.id.edit_city);
+        mZIPField = findViewById(R.id.edit_zip);
 
         Bundle bundle = getIntent().getExtras();
 
-        mPet = new Pet(bundle.getInt("id"), bundle.getString("name"), bundle.getString("type"), bundle.getString("address"));
+        mPet = new Pet(bundle.getInt("id"), bundle.getString("name"), bundle.getString("type"), bundle.getString("city"), bundle.getInt("zip"));
         mNameField.setText(mPet.getName());
         mTypeField.setText(mPet.getType());
-        mAddressField.setText(mPet.getAddress());
-
-        super.onStart();
+        mCityField.setText(mPet.getCity());
+        mZIPField.setText(mPet.getZIP());
     }
 
     public void editProfile(View view) {
@@ -52,8 +55,22 @@ public class EditProfileActivity extends AppCompatActivity {
             wrong = true;
         }
 
-        if (mAddressField.getText() == null || mAddressField.getText().toString().equals("")) {
-            mTypeField.setError("Wrong format (City-ZIP)");
+        if (mCityField.getText() == null || mCityField.getText().toString().equals("")) {
+            mCityField.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (mZIPField.getText() == null || mZIPField.getText().toString().equals("")) {
+            mZIPField.setError("Wrong format");
+            wrong = true;
+        }
+
+        int zipCode = 0;
+
+        try {
+            zipCode = Integer.parseInt(mZIPField.getText().toString());
+        }
+        catch (NumberFormatException ex) {
             wrong = true;
         }
 
@@ -63,10 +80,11 @@ public class EditProfileActivity extends AppCompatActivity {
 
         mPet.setName(mNameField.getText().toString());
         mPet.setType(mTypeField.getText().toString());
-        mPet.setAddress(mAddressField.getText().toString());
+        mPet.setCity(mCityField.getText().toString());
+        mPet.setZIP(zipCode);
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("UPDATE pets SET name = '%s', type = '%s', address = '%s' WHERE id = %d", mPet.getName(), mPet.getType(), mPet.getAddress(), mPet.getId()));
+        database.execSQL(String.format("UPDATE pets SET name = '%s', type = '%s', city = '%s', zip = %d WHERE id = %d", mPet.getName(), mPet.getType(), mPet.getCity(), mPet.getZIP(), mPet.getId()));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

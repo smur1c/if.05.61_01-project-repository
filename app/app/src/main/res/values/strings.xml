@@ -15,12 +15,14 @@
     <string name="reset_password_email">e-mail</string>
     <string name="reset_password_confirm">reset password</string>
 
-    <string name="create_new_profile">Create new Profile</string>
-    <string name="create_new_petkeeper_profile">Create new Petkeeper profile</string>
+    <string name="create_new_profile">Create new profile</string>
+    <string name="create_new_petkeeper_profile">Create new petkeeper profile</string>
+    <string name="edit_petkeeper_profile">Edit petkeeper profile</string>
 
     <string name="profile_name">Name</string>
     <string name="profile_type">Pet type</string>
-    <string name="profile_address">Postal address</string>
+    <string name="profile_city">City</string>
+    <string name="profile_zip">ZIP code</string>
     <string name="profile_create">Create profile</string>
 
     <string name="register_keeper">Register as a keeper</string>
@@ -31,4 +33,6 @@
     <string name="petkeeper_email">e-mail (visible to everyone)</string>
     <string name="petkeeper_full_name">Full name</string>
     <string name="petkeeper_about_you">About you</string>
+    <string name="petkeeper_type">Pet type</string>
+    <string name="petkeeper_save">Save profile</string>
 </resources>

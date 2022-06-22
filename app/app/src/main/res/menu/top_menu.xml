@@ -10,4 +10,7 @@
         android:id="@+id/new_petkeeper_profile"
         android:title="@string/create_new_petkeeper_profile"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/edit_petkeeper_profile"
+        android:title="@string/edit_petkeeper_profile" />
 </menu>

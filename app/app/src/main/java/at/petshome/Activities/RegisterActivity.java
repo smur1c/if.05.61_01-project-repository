@@ -28,10 +28,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        super.onStart();
         mNameField = findViewById(R.id.register_name);
         mEmailField = findViewById(R.id.register_email);
         mPasswordField = findViewById(R.id.register_password);
-        super.onStart();
     }
 
     public void doRegister(View view) {
@@ -63,7 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
 
         database.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, password NOT NULL)");
-        database.execSQL("CREATE TABLE pets(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, address TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        database.execSQL("CREATE TABLE pets(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        database.execSQL("CREATE TABLE petkeepers(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, about TEXT NOT NULL, type TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        //database.execSQL("CREATE TABLE pettypes(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, type TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
 
         Cursor users = database.rawQuery("SELECT * FROM users", null);
 

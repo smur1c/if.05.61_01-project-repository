@@ -4,17 +4,19 @@ public class Pet {
     private int mId;
     private String mName;
     private String mType;
-    private String mAddress;
-
-    public Pet(int id, String name, String type, String address) {
-        mId = id;
-        mName = name;
-        mType = type;
-        mAddress = address;
-    }
+    private String mCity;
+    private int mZIP;
 
     public Pet() {
 
+    }
+
+    public Pet(int id, String name, String type, String city, int ZIP) {
+        mId = id;
+        mName = name;
+        mType = type;
+        mCity = city;
+        mZIP = ZIP;
     }
 
     public int getId() {
@@ -37,12 +39,20 @@ public class Pet {
         mType = type;
     }
 
-    public String getAddress() {
-        return mAddress;
+    public String getCity() {
+        return mCity;
     }
 
-    public void setAddress(String address) {
-        mAddress = address;
+    public void setCity(String city) {
+        mCity = city;
+    }
+
+    public int getZIP() {
+        return mZIP;
+    }
+
+    public void setZIP(int ZIP) {
+        mZIP = ZIP;
     }
 
     @Override

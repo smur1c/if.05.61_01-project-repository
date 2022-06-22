@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_address" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_zip" />
 
     <EditText
         android:id="@+id/profile_name"
@@ -47,18 +47,33 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
 
     <EditText
-        android:id="@+id/profile_address"
+        android:id="@+id/profile_city"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/profile_address"
+        android:hint="@string/profile_city"
         android:inputType="textPersonName"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_type" />
+
+    <EditText
+        android:id="@+id/profile_zip"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/profile_zip"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_city" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

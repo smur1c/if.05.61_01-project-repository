@@ -31,8 +31,8 @@ import at.petshome.Settings;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-    ArrayList<Pet> mList = null;
-    ArrayAdapter mAdapter = null;
+    private ArrayList<Pet> mList = null;
+    private ArrayAdapter mAdapter = null;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,7 +72,7 @@ public class ProfileFragment extends Fragment {
         Cursor cursor = database.rawQuery(String.format("SELECT * FROM pets WHERE user_id = %d", Settings.getInstance().getUid()), null);
 
         while (cursor.moveToNext()) {
-            mList.add(new Pet(cursor.getInt(0), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
+            mList.add(new Pet(cursor.getInt(0), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5)));
         }
     }
 
@@ -87,7 +87,8 @@ public class ProfileFragment extends Fragment {
         intent.putExtra("id", pet.getId());
         intent.putExtra("name", pet.getName());
         intent.putExtra("type", pet.getType());
-        intent.putExtra("address", pet.getAddress());
+        intent.putExtra("city", pet.getCity());
+        intent.putExtra("zip", pet.getZIP());
         startActivity(intent);
         System.out.println(Settings.getInstance().getPet().getName());
     }

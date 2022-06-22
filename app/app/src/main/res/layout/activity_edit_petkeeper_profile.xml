@@ -4,22 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.CreatePetkeeperProfileActivity">
-
-    <Button
-        android:id="@+id/petkeeper_confirm"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:onClick="createProfile"
-        android:text="@string/profile_create"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petkeeper_type" />
+    tools:context=".Activities.EditPetkeeperProfileActivity">
 
     <EditText
-        android:id="@+id/petkeeper_email"
+        android:id="@+id/petkeeper_edit_email"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="64dp"
@@ -32,13 +20,12 @@
         android:minHeight="48dp"
         android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/petkeeper_full_name"
+        android:id="@+id/petkeeper_edit_full_name"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -48,12 +35,11 @@
         android:inputType="textPersonName"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petkeeper_email" />
+        app:layout_constraintTop_toBottomOf="@+id/petkeeper_edit_email" />
 
     <EditText
-        android:id="@+id/petkeeper_aboutyou"
+        android:id="@+id/petkeeper_edit_aboutyou"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -64,18 +50,31 @@
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petkeeper_full_name" />
+        app:layout_constraintTop_toBottomOf="@+id/petkeeper_edit_full_name"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/petkeeper_save"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:onClick="saveProfile"
+        android:text="@string/petkeeper_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petkeeper_edit_type" />
 
     <Spinner
-        android:id="@+id/petkeeper_type"
+        android:id="@+id/petkeeper_edit_type"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/petkeeper_type"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petkeeper_aboutyou" />
+        app:layout_constraintTop_toBottomOf="@+id/petkeeper_edit_aboutyou" />
 </androidx.constraintlayout.widget.ConstraintLayout>

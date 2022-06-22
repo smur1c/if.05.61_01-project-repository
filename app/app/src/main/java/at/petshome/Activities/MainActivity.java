@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, CreatePetkeeperProfileActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.edit_petkeeper_profile:
+                intent = new Intent(this, EditPetkeeperProfileActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
