@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import at.petshome.R;
 
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         NavController controller = Navigation.findNavController(this, R.id.fragment);
 
         NavigationUI.setupWithNavController(navigationView, controller);
+
+        FloatingActionButton fab = findViewById(R.id.search_fab);
+        fab.setOnClickListener(v -> System.out.println("lol"));
     }
 
     @Override
