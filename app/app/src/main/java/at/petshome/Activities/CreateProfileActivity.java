@@ -6,16 +6,23 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 import at.petshome.R;
 import at.petshome.Settings;
 
 public class CreateProfileActivity extends AppCompatActivity {
     private EditText mNameField;
-    private EditText mTypeField;
     private EditText mCityField;
     private EditText mZIPField;
+
+    private ArrayList<String> mList = null;
+    private ArrayAdapter mAdapter = null;
+    private Spinner mSpinner = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +32,18 @@ public class CreateProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        mNameField = findViewById(R.id.profile_name);
-        mTypeField = findViewById(R.id.profile_type);
-        mCityField = findViewById(R.id.profile_city);
-        mZIPField = findViewById(R.id.profile_city);
         super.onStart();
+
+        mNameField = findViewById(R.id.profile_name);
+        mCityField = findViewById(R.id.profile_city);
+        mZIPField = findViewById(R.id.profile_zip);
+
+        mSpinner = findViewById(R.id.profile_type);
+        mList = new ArrayList<>();
+        mList.add("Dog");
+        mList.add("Cat");
+        mAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mList);
+        mSpinner.setAdapter(mAdapter);
     }
 
     public void createProfile(View view) {
@@ -37,11 +51,6 @@ public class CreateProfileActivity extends AppCompatActivity {
 
         if (mNameField.getText() == null || mNameField.getText().toString().equals("")) {
             mNameField.setError("Wrong format");
-            wrong = true;
-        }
-
-        if (mTypeField.getText() == null || mTypeField.getText().toString().equals("")) {
-            mTypeField.setError("Wrong format");
             wrong = true;
         }
 
@@ -65,11 +74,12 @@ public class CreateProfileActivity extends AppCompatActivity {
         }
 
         if (wrong) {
+            System.out.println("wrong amk");
             return;
         }
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("INSERT INTO pets(user_id, name, type, city, zip) VALUES(%d, '%s', '%s', '%s', %d)", Settings.getInstance().getUid(), mNameField.getText().toString(), mTypeField.getText().toString(), mCityField.getText().toString(), zipCode));
+        database.execSQL(String.format("INSERT INTO pets(user_id, name, type, city, zip) VALUES(%d, '%s', '%s', '%s', %d)", Settings.getInstance().getUid(), mNameField.getText().toString(), mList.get(mSpinner.getSelectedItemPosition()), mCityField.getText().toString(), zipCode));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

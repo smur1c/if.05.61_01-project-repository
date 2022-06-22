@@ -90,7 +90,6 @@ public class ProfileFragment extends Fragment {
         intent.putExtra("city", pet.getCity());
         intent.putExtra("zip", pet.getZIP());
         startActivity(intent);
-        System.out.println(Settings.getInstance().getPet().getName());
     }
 
     @Override
@@ -125,7 +124,6 @@ public class ProfileFragment extends Fragment {
         mAdapter.clear();
         updateList();
         mAdapter.notifyDataSetChanged();
-        System.out.println("suscall");
         super.onResume();
     }
 }

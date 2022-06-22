@@ -6,17 +6,24 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 import at.petshome.Pet;
 import at.petshome.R;
 
 public class EditProfileActivity extends AppCompatActivity {
     private EditText mNameField;
-    private EditText mTypeField;
     private EditText mCityField;
     private EditText mZIPField;
     private Pet mPet;
+
+    private ArrayList<String> mList = null;
+    private ArrayAdapter mAdapter = null;
+    private Spinner mSpinner = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +36,23 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onStart();
 
         mNameField = findViewById(R.id.edit_name);
-        mTypeField = findViewById(R.id.edit_type);
         mCityField = findViewById(R.id.edit_city);
         mZIPField = findViewById(R.id.edit_zip);
+
+        mSpinner = findViewById(R.id.edit_type);
+        mList = new ArrayList<>();
+        mList.add("Dog");
+        mList.add("Cat");
+        mAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mList);
+        mSpinner.setAdapter(mAdapter);
 
         Bundle bundle = getIntent().getExtras();
 
         mPet = new Pet(bundle.getInt("id"), bundle.getString("name"), bundle.getString("type"), bundle.getString("city"), bundle.getInt("zip"));
         mNameField.setText(mPet.getName());
-        mTypeField.setText(mPet.getType());
         mCityField.setText(mPet.getCity());
-        mZIPField.setText(mPet.getZIP());
+        mZIPField.setText(String.valueOf(mPet.getZIP()));
+        mSpinner.setSelection(mList.indexOf(mPet.getType()));
     }
 
     public void editProfile(View view) {
@@ -47,11 +60,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
         if (mNameField.getText() == null || mNameField.getText().toString().equals("")) {
             mNameField.setError("Wrong format");
-            wrong = true;
-        }
-
-        if (mTypeField.getText() == null || mTypeField.getText().toString().equals("")) {
-            mTypeField.setError("Wrong format");
             wrong = true;
         }
 
@@ -79,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity {
         }
 
         mPet.setName(mNameField.getText().toString());
-        mPet.setType(mTypeField.getText().toString());
+        mPet.setType(mList.get(mSpinner.getSelectedItemPosition()));
         mPet.setCity(mCityField.getText().toString());
         mPet.setZIP(zipCode);
 
