@@ -13,9 +13,6 @@
             android:name=".Activities.EditPetkeeperProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.SearchActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.CreatePetkeeperProfileActivity"
             android:exported="false" />
         <activity

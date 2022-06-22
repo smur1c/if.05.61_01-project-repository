@@ -11,8 +11,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import at.petshome.R;
-import at.petshome.Hash;
-import at.petshome.Settings;
+import at.petshome.Miscellaneous.Hash;
+import at.petshome.Miscellaneous.Settings;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText mEmailField;

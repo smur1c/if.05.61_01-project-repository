@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-import at.petshome.Pet;
+import at.petshome.Entities.Pet;
 import at.petshome.R;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -51,7 +51,7 @@ public class EditProfileActivity extends AppCompatActivity {
         mPet = new Pet(bundle.getInt("id"), bundle.getString("name"), bundle.getString("type"), bundle.getString("city"), bundle.getInt("zip"));
         mNameField.setText(mPet.getName());
         mCityField.setText(mPet.getCity());
-        mZIPField.setText(String.valueOf(mPet.getZIP()));
+        mZIPField.setText(String.valueOf(mPet.getZip()));
         mSpinner.setSelection(mList.indexOf(mPet.getType()));
     }
 
@@ -89,10 +89,10 @@ public class EditProfileActivity extends AppCompatActivity {
         mPet.setName(mNameField.getText().toString());
         mPet.setType(mList.get(mSpinner.getSelectedItemPosition()));
         mPet.setCity(mCityField.getText().toString());
-        mPet.setZIP(zipCode);
+        mPet.setZip(zipCode);
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("UPDATE pets SET name = '%s', type = '%s', city = '%s', zip = %d WHERE id = %d", mPet.getName(), mPet.getType(), mPet.getCity(), mPet.getZIP(), mPet.getId()));
+        database.execSQL(String.format("UPDATE pets SET name = '%s', type = '%s', city = '%s', zip = %d WHERE id = %d", mPet.getName(), mPet.getType(), mPet.getCity(), mPet.getZip(), mPet.getId()));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

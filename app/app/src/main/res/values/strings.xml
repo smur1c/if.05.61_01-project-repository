@@ -35,4 +35,9 @@
     <string name="petkeeper_about_you">About you</string>
     <string name="petkeeper_type">Pet type</string>
     <string name="petkeeper_save">Save profile</string>
+
+    <string name="search_petkeeper">Petkeeper</string>
+    <string name="search_pet">Pet</string>
+    <string name="search_for">Search for</string>
+    <string name="search_start">Start search</string>
 </resources>

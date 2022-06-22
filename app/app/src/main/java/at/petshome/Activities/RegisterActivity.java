@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import at.petshome.R;
-import at.petshome.Hash;
+import at.petshome.Miscellaneous.Hash;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText mNameField;
@@ -24,14 +25,15 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        mNameField = findViewById(R.id.register_name);
+        mEmailField = findViewById(R.id.register_email);
+        mPasswordField = findViewById(R.id.register_password);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mNameField = findViewById(R.id.register_name);
-        mEmailField = findViewById(R.id.register_email);
-        mPasswordField = findViewById(R.id.register_password);
     }
 
     public void doRegister(View view) {
@@ -62,9 +64,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
 
-        database.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, password NOT NULL)");
-        database.execSQL("CREATE TABLE pets(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
-        database.execSQL("CREATE TABLE petkeepers(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, about TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        try {
+            database.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, password NOT NULL)");
+            database.execSQL("CREATE TABLE pets(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+            database.execSQL("CREATE TABLE petkeepers(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, about TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        }
+        catch (SQLException ex) {
+
+        }
         //database.execSQL("CREATE TABLE pettypes(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, type TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
 
         Cursor users = database.rawQuery("SELECT * FROM users", null);
