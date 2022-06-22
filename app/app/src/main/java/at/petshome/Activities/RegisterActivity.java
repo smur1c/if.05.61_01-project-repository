@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         database.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, password NOT NULL)");
         database.execSQL("CREATE TABLE pets(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
-        database.execSQL("CREATE TABLE petkeepers(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, about TEXT NOT NULL, type TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
+        database.execSQL("CREATE TABLE petkeepers(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, email TEXT NOT NULL, name TEXT NOT NULL, about TEXT NOT NULL, type TEXT NOT NULL, city TEXT NOT NULL, zip INTEGER NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
         //database.execSQL("CREATE TABLE pettypes(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, type TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id))");
 
         Cursor users = database.rawQuery("SELECT * FROM users", null);

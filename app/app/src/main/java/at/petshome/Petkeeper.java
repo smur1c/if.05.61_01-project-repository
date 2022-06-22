@@ -6,17 +6,21 @@ public class Petkeeper {
     private String mName;
     private String mAbout;
     private String mPetType;
+    private String mCity;
+    private int mZip;
 
     public Petkeeper() {
 
     }
 
-    public Petkeeper(int id, String email, String name, String about, String petType) {
+    public Petkeeper(int id, String email, String name, String about, String petType, String city, int zip) {
         mId = id;
         mEmail = email;
         mName = name;
         mAbout = about;
         mPetType = petType;
+        mCity = city;
+        mZip = zip;
     }
 
     public int getId() {
@@ -53,5 +57,21 @@ public class Petkeeper {
 
     public void setPetType(String petType) {
         mPetType = petType;
+    }
+
+    public String getCity() {
+        return mCity;
+    }
+
+    public void setCity(String city) {
+        mCity = city;
+    }
+
+    public int getZip() {
+        return mZip;
+    }
+
+    public void setZip(int zip) {
+        mZip = zip;
     }
 }

@@ -25,6 +25,10 @@ public class EditPetkeeperProfileActivity extends AppCompatActivity {
     private EditText mEmailField = null;
     private EditText mNameField = null;
     private EditText mAboutField = null;
+    private EditText mCityField = null;
+    private EditText mZIPField = null;
+
+    private Petkeeper mPetkeeper = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class EditPetkeeperProfileActivity extends AppCompatActivity {
         mEmailField = findViewById(R.id.petkeeper_edit_email);
         mNameField = findViewById(R.id.petkeeper_edit_full_name);
         mAboutField = findViewById(R.id.petkeeper_edit_aboutyou);
+        mCityField = findViewById(R.id.petkeeper_edit_city);
+        mZIPField = findViewById(R.id.petkeeper_edit_zip);
     }
 
     @Override
@@ -48,23 +54,23 @@ public class EditPetkeeperProfileActivity extends AppCompatActivity {
         super.onStart();
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        Cursor cursor = database.rawQuery(String.format("SELECT id, email, name, about, type FROM petkeepers WHERE user_id = %d", Settings.getInstance().getUid()), null);
+        Cursor cursor = database.rawQuery(String.format("SELECT id, email, name, about, type, city, zip FROM petkeepers WHERE user_id = %d", Settings.getInstance().getUid()), null);
 
         if (cursor.getCount() == 0) {
             System.out.println("error");
             return;
         }
 
-        Petkeeper pk = null;
-
         while (cursor.moveToNext()) {
-            pk = new Petkeeper(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            mPetkeeper = new Petkeeper(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6));
         }
 
-        mEmailField.setText(pk.getEmail());
-        mNameField.setText(pk.getName());
-        mAboutField.setText(pk.getAbout());
-        mSpinner.setSelection(mList.indexOf(pk.getPetType()));
+        mEmailField.setText(mPetkeeper.getEmail());
+        mNameField.setText(mPetkeeper.getName());
+        mAboutField.setText(mPetkeeper.getAbout());
+        mCityField.setText(mPetkeeper.getCity());
+        mZIPField.setText(String.valueOf(mPetkeeper.getZip()));
+        mSpinner.setSelection(mList.indexOf(mPetkeeper.getPetType()));
     }
 
     public void saveProfile(View view) {
@@ -87,12 +93,31 @@ public class EditPetkeeperProfileActivity extends AppCompatActivity {
             wrong = true;
         }
 
+        if (mCityField.getText() == null || mCityField.getText().toString().equals("")) {
+            mCityField.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (mZIPField.getText() == null || mZIPField.getText().toString().equals("")) {
+            mZIPField.setError("Wrong format");
+            wrong = true;
+        }
+
+        int zipCode = 0;
+
+        try {
+            zipCode = Integer.parseInt(mZIPField.getText().toString());
+        }
+        catch (NumberFormatException ex) {
+            wrong = true;
+        }
+
         if (wrong) {
             return;
         }
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("UPDATE petkeepers SET email =  '%s', name = '%s', about = '%s', type = '%s'", mEmailField.getText().toString(), mNameField.getText().toString(), mAboutField.getText().toString(), petType), null);
+        database.execSQL(String.format("UPDATE petkeepers SET email = '%s', name = '%s', about = '%s', type = '%s', city = '%s', zip = %d WHERE id = %d", mEmailField.getText().toString(), mNameField.getText().toString(), mAboutField.getText().toString(), petType, mCityField.getText().toString(), zipCode, mPetkeeper.getId()));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

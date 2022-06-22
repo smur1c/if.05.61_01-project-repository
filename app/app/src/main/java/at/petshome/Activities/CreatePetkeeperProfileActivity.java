@@ -23,6 +23,8 @@ public class CreatePetkeeperProfileActivity extends AppCompatActivity {
     private EditText mEmailField = null;
     private EditText mNameField = null;
     private EditText mAboutField = null;
+    private EditText mCityField = null;
+    private EditText mZIPField = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class CreatePetkeeperProfileActivity extends AppCompatActivity {
         mEmailField = findViewById(R.id.petkeeper_email);
         mNameField = findViewById(R.id.petkeeper_full_name);
         mAboutField = findViewById(R.id.petkeeper_aboutyou);
+        mCityField = findViewById(R.id.petkeeper_city);
+        mZIPField = findViewById(R.id.petkeeper_zip);
     }
 
     public void createProfile(View view) {
@@ -61,12 +65,31 @@ public class CreatePetkeeperProfileActivity extends AppCompatActivity {
             wrong = true;
         }
 
+        if (mCityField.getText() == null || mCityField.getText().toString().equals("")) {
+            mCityField.setError("Wrong format");
+            wrong = true;
+        }
+
+        if (mZIPField.getText() == null || mZIPField.getText().toString().equals("")) {
+            mZIPField.setError("Wrong format");
+            wrong = true;
+        }
+
+        int zipCode = 0;
+
+        try {
+            zipCode = Integer.parseInt(mZIPField.getText().toString());
+        }
+        catch (NumberFormatException ex) {
+            wrong = true;
+        }
+
         if (wrong) {
             return;
         }
 
         SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
-        database.execSQL(String.format("INSERT INTO petkeepers(user_id, email, name, about , type) VALUES(%d, '%s', '%s', '%s', '%s')", Settings.getInstance().getUid(), mEmailField.getText().toString(), mNameField.getText().toString(), mAboutField.getText().toString(), petType));
+        database.execSQL(String.format("INSERT INTO petkeepers(user_id, email, name, about , type, city, zip) VALUES(%d, '%s', '%s', '%s', '%s', '%s', %d)", Settings.getInstance().getUid(), mEmailField.getText().toString(), mNameField.getText().toString(), mAboutField.getText().toString(), petType, mCityField.getText().toString(), zipCode));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
