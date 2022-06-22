@@ -22,6 +22,6 @@ public class Pet extends Entity {
 
     @Override
     public String toString() {
-        return super.getName();
+        return getType() + " -> " + super.getName();
     }
 }

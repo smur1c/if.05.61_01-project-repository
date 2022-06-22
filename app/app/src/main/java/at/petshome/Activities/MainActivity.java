@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.new_petkeeper_profile:
-
                 SQLiteDatabase database = openOrCreateDatabase("PetsHome", MODE_PRIVATE, null);
                 Cursor cursor = database.rawQuery(String.format("SELECT * FROM petkeepers WHERE user_id = %d", Settings.getInstance().getUid()), null);
 
@@ -71,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.edit_petkeeper_profile:
                 intent = new Intent(this, EditPetkeeperProfileActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.logout:
+                intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
         }

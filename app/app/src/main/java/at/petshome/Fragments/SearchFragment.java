@@ -1,5 +1,6 @@
 package at.petshome.Fragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.File;
 import java.util.ArrayList;
 
+import at.petshome.Activities.EditProfileActivity;
+import at.petshome.Activities.ShowPetkeeperActivity;
 import at.petshome.Entities.Pet;
 import at.petshome.Entities.Petkeeper;
 import at.petshome.Miscellaneous.Settings;
@@ -99,9 +102,24 @@ public class SearchFragment extends Fragment {
         }
 
         while (cursor.moveToNext()) {
-            mList.add(new Petkeeper(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), mPetList.get(mSpinner.getSelectedItemPosition()).toString(), cursor.getString(4), cursor.getInt(5)));
+            mList.add(new Petkeeper(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), mPetList.get(mSpinner.getSelectedItemPosition()).getType(), cursor.getString(4), cursor.getInt(5)));
         }
         mAdapter.notifyDataSetChanged();
+    }
+
+    private void handleItemClick(int position) {
+        Petkeeper pk = mList.get(position);
+        System.out.println(pk.getPetType());
+
+        Intent intent = new Intent(getContext(), ShowPetkeeperActivity.class);
+        intent.putExtra("email", pk.getEmail());
+        intent.putExtra("name", pk.getName());
+        intent.putExtra("about", pk.getAbout());
+        intent.putExtra("pettype", pk.getPetType());
+        intent.putExtra("city", pk.getCity());
+        intent.putExtra("zip", pk.getZip());
+        startActivity(intent);
+
     }
 
     @Override
@@ -121,7 +139,7 @@ public class SearchFragment extends Fragment {
         mSpinnnerAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, mPetList);
         mSpinner.setAdapter(mSpinnnerAdapter);
 
-        // setonitemclicklistener
+        lv.setOnItemClickListener(((parent, view1, position, id) -> handleItemClick(position)));
         lv.setAdapter(mAdapter);
     }
 
