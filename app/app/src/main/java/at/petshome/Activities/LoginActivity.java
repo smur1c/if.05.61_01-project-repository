@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             String currentEmail = cursor.getString(1);
             String currentPassword = cursor.getString(3);
 
-            if (currentEmail.equals(email) && Hash.getInstance().hash(password).equals(currentPassword)) {
+            if (currentEmail.equalsIgnoreCase(email) && Hash.getInstance().hash(password).equals(currentPassword)) {
                 Settings.getInstance().setEmail(currentEmail);
                 Settings.getInstance().setUid(cursor.getInt(0));
                 Intent intent = new Intent(this, MainActivity.class);
