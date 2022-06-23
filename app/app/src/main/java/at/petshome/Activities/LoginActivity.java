@@ -22,12 +22,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mEmailField = findViewById(R.id.login_email);
+        mPasswordField = findViewById(R.id.login_password);
     }
 
     @Override
     protected void onStart() {
-        mEmailField = findViewById(R.id.login_email);
-        mPasswordField = findViewById(R.id.login_password);
         super.onStart();
     }
 

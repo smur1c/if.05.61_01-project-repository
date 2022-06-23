@@ -28,15 +28,15 @@ public class CreateProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
+
+        mNameField = findViewById(R.id.profile_name);
+        mCityField = findViewById(R.id.profile_city);
+        mZIPField = findViewById(R.id.profile_zip);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        mNameField = findViewById(R.id.profile_name);
-        mCityField = findViewById(R.id.profile_city);
-        mZIPField = findViewById(R.id.profile_zip);
 
         mSpinner = findViewById(R.id.profile_type);
         mList = new ArrayList<>();
@@ -74,7 +74,6 @@ public class CreateProfileActivity extends AppCompatActivity {
         }
 
         if (wrong) {
-            System.out.println("wrong amk");
             return;
         }
 

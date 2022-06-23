@@ -29,15 +29,15 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        mNameField = findViewById(R.id.edit_name);
+        mCityField = findViewById(R.id.edit_city);
+        mZIPField = findViewById(R.id.edit_zip);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        mNameField = findViewById(R.id.edit_name);
-        mCityField = findViewById(R.id.edit_city);
-        mZIPField = findViewById(R.id.edit_zip);
 
         mSpinner = findViewById(R.id.edit_type);
         mList = new ArrayList<>();
