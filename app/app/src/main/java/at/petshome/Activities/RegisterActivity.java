@@ -13,6 +13,7 @@ import android.widget.EditText;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import at.petshome.Miscellaneous.Regex;
 import at.petshome.R;
 import at.petshome.Miscellaneous.Hash;
 
@@ -43,12 +44,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         boolean wrong = false;
 
-        if (!regexTesterEmail(mEmailField.getText().toString())) {
+        if (!Regex.getInstance().email(mEmailField.getText().toString())) {
             mEmailField.setError("Wrong format");
             wrong = true;
         }
 
-        if (!regexTesterPassword(mPasswordField.getText().toString())) {
+        if (!Regex.getInstance().password(mPasswordField.getText().toString())) {
             mPasswordField.setError("Wrong format");
             wrong = true;
         }
@@ -87,23 +88,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-    }
-
-    public boolean regexTesterEmail(String email){
-        String regex = "^(.+)@(.+)$";
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-
-        return matcher.matches();
-    }
-
-    public boolean regexTesterPassword(String password){
-        String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
-
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
     }
 
     public void deleteDatabase(View view) {

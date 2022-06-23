@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+import at.petshome.Miscellaneous.Regex;
 import at.petshome.R;
 import at.petshome.Miscellaneous.Settings;
 
@@ -50,7 +51,7 @@ public class CreatePetkeeperProfileActivity extends AppCompatActivity {
 
         boolean wrong = false;
 
-        if (mEmailField.getText() == null || mEmailField.getText().toString().equals("")) {
+        if (mEmailField.getText() == null || mEmailField.getText().toString().equals("") || Regex.getInstance().email(mEmailField.getText().toString())) {
             mEmailField.setError("Wrong format");
             wrong = true;
         }
