@@ -1,4 +1,6 @@
-package at.petshome;
+package at.petshome.Miscellaneous;
+
+import at.petshome.Entities.Pet;
 
 public class Settings {
     private static Settings mSingleton = null;

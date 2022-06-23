@@ -13,9 +13,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-import at.petshome.Petkeeper;
+import at.petshome.Entities.Petkeeper;
 import at.petshome.R;
-import at.petshome.Settings;
+import at.petshome.Miscellaneous.Settings;
 
 public class EditPetkeeperProfileActivity extends AppCompatActivity {
     private ArrayList<String> mList = null;

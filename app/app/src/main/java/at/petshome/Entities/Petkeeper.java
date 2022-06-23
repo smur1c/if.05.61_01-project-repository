@@ -1,30 +1,19 @@
-package at.petshome;
+package at.petshome.Entities;
 
-public class Petkeeper {
-    private int mId;
+public class Petkeeper extends Entity {
     private String mEmail;
-    private String mName;
     private String mAbout;
     private String mPetType;
-    private String mCity;
-    private int mZip;
 
     public Petkeeper() {
 
     }
 
     public Petkeeper(int id, String email, String name, String about, String petType, String city, int zip) {
-        mId = id;
+        super(id, name, city, zip);
         mEmail = email;
-        mName = name;
         mAbout = about;
         mPetType = petType;
-        mCity = city;
-        mZip = zip;
-    }
-
-    public int getId() {
-        return mId;
     }
 
     public String getEmail() {
@@ -33,14 +22,6 @@ public class Petkeeper {
 
     public void setEmail(String email) {
         mEmail = email;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public void setName(String name) {
-        mName = name;
     }
 
     public String getAbout() {
@@ -59,19 +40,8 @@ public class Petkeeper {
         mPetType = petType;
     }
 
-    public String getCity() {
-        return mCity;
-    }
-
-    public void setCity(String city) {
-        mCity = city;
-    }
-
-    public int getZip() {
-        return mZip;
-    }
-
-    public void setZip(int zip) {
-        mZip = zip;
+    @Override
+    public String toString() {
+        return super.getName() + " | " + getEmail();
     }
 }

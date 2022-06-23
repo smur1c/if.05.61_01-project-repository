@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 import at.petshome.R;
-import at.petshome.Settings;
+import at.petshome.Miscellaneous.Settings;
 
 public class CreateProfileActivity extends AppCompatActivity {
     private EditText mNameField;

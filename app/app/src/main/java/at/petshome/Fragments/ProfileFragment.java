@@ -15,15 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
 
 import at.petshome.Activities.EditProfileActivity;
-import at.petshome.Activities.RegisterActivity;
-import at.petshome.Pet;
+import at.petshome.Entities.Pet;
 import at.petshome.R;
-import at.petshome.Settings;
+import at.petshome.Miscellaneous.Settings;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,6 +71,11 @@ public class ProfileFragment extends Fragment {
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(file, null);
         Cursor cursor = database.rawQuery(String.format("SELECT * FROM pets WHERE user_id = %d", Settings.getInstance().getUid()), null);
 
+        if (cursor.getCount() == 0) {
+            Toast.makeText(getContext(), "User doesn't have any registered pets", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         while (cursor.moveToNext()) {
             mList.add(new Pet(cursor.getInt(0), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5)));
         }
@@ -79,23 +84,19 @@ public class ProfileFragment extends Fragment {
     private void handleItemClicked(int position) {
         Pet pet = mList.get(position);
 
-        if (pet == null) {
-            return;
-        }
-
         Intent intent = new Intent(getContext(), EditProfileActivity.class);
         intent.putExtra("id", pet.getId());
         intent.putExtra("name", pet.getName());
         intent.putExtra("type", pet.getType());
         intent.putExtra("city", pet.getCity());
-        intent.putExtra("zip", pet.getZIP());
+        intent.putExtra("zip", pet.getZip());
         startActivity(intent);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView lv = getView().findViewById(R.id.lv_profile);
+        ListView lv = view.findViewById(R.id.lv_profile);
         mList = new ArrayList<>();
         updateList();
         mAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, mList);
